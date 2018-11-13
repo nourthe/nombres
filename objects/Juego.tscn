@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/personaje.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/personaje.gd" type="Script" id=2]
+[ext_resource path="res://objects/insecto.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Shader" id=1]
+
+code = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = SubResource( 1 )
+
+[node name="Juego" type="Node" index="0"]
+
+[node name="jugador" parent="." index="0" instance=ExtResource( 1 )]
+
+material = SubResource( 2 )
+position = Vector2( 490.081, 299.38 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
+speed = 200
+
+[node name="KinematicBody2D2" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 913.721, 157.931 )
+
+[node name="KinematicBody2D" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 311.526, 304.724 )
+rotation = 0.790691
+
+
