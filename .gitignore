@@ -1,0 +1,11 @@
+# Ignorantes específicos de Godot
+.importar/
+export.cfg
+export_presets.cfg
+
+# Mono-específico ignora
+.mono/
+
+# Sistema / herramientas específicas ignoradas
+.directorio
+* ~
