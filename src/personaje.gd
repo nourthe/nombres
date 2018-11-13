@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
-export (int) var speed = 200
+export (int) var speed = 350
 
 var velocity = Vector2()
 var inmune = true
 var acelerado = Vector2(0,0)
+
+var vidas = 3
 
 func get_input():
     velocity = Vector2()
@@ -22,19 +24,15 @@ func _physics_process(delta):
 	if acelerado.length()<0.2:
 		get_input()
 		var collision = move_and_collide(velocity * delta)
-		if collision:
-			golpear(collision.normal)
-			#if collision.collider.has_method("hit"):
-				#collision.collider.hit()
 	else:
 		move_and_collide(acelerado*delta*400)
 		acelerado*=0.9
-		print(acelerado.length())
 
-func golpear(direccion):
+func hit(direccion):
 	inmune = true
-	acelerado = direccion
-	print(direccion.length())
-	
+	acelerado = -direccion
+	vidas -= 1
+	print("Vidas: ",vidas)
+
 func _ready():
 	print("Comenzó el programa")
