@@ -30,9 +30,14 @@ speed = 350
 
 position = Vector2( 913.721, 157.931 )
 
-[node name="KinematicBody2D" parent="." index="2" instance=ExtResource( 4 )]
+[node name="KinematicBody2D16" parent="." index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 311.526, 304.724 )
+position = Vector2( 355.526, 441.724 )
+rotation = 0.790691
+
+[node name="KinematicBody2D17" parent="." index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 246.526, 182.724 )
 rotation = 0.790691
 
 
