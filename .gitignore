@@ -1,7 +1,6 @@
 ﻿
-.importar
+.importar/*.md5
 export.cfg
 export_presets.cfg
 
 .mono
-
