@@ -14,9 +14,7 @@ func _ready():
 
 func on_salir():
 	get_tree().quit()
-	pass # replace with function body
 
 
 func on_super():
-	get_tree().change_scene("res://assets/supervivencia.tscn")
-	pass # replace with function body
+	get_tree().change_scene("res://objects/supervivencia.tscn")
