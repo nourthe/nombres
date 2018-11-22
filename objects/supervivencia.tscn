@@ -14,7 +14,7 @@ code = ""
 render_priority = 0
 shader = SubResource( 1 )
 
-[node name="Juego" type="Node" index="0"]
+[node name="Juego" type="Node"]
 
 script = ExtResource( 1 )
 

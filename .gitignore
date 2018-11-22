@@ -1,5 +1,5 @@
 ﻿
-.importar
+.import
 export.cfg
 export_presets.cfg
 
@@ -17,4 +17,3 @@ export_presets.cfg
 .Trashes
 ehthumbs.db
 Thumbs.db
-*.lnk
