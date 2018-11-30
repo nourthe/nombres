@@ -11,25 +11,23 @@ script = ExtResource( 1 )
 
 [node name="jugador" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 489.418, 299.38 )
+position = Vector2( 856.177, 135.391 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Transform" ]
 speed = 200
 
 [node name="KinematicBody2D2" parent="." index="1" instance=ExtResource( 4 )]
 
-position = Vector2( 913.721, 157.931 )
+position = Vector2( 200, 500 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="KinematicBody2D16" parent="." index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 355.526, 441.724 )
-rotation = 0.790691
+position = Vector2( 300, 500 )
 
 [node name="KinematicBody2D17" parent="." index="3" instance=ExtResource( 4 )]
 
-position = Vector2( 246.526, 182.724 )
-rotation = 0.790691
+position = Vector2( 400, 500 )
 
 [node name="textos" type="Control" parent="." index="4"]
 

@@ -51,3 +51,4 @@ func hit(direccion):
 
 func get_puntos():
 	return floor(puntos)
+	
