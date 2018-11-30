@@ -9,10 +9,12 @@ radius = 10.0
 
 [node name="KinematicBody2D" type="KinematicBody2D" index="0"]
 
+scale = Vector2( 0.5, 0.5 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -39,5 +41,12 @@ size_flags_vertical = 1
 texture = ExtResource( 1 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
+
+[node name="inmune" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 

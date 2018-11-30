@@ -1,12 +1,21 @@
 extends KinematicBody2D
 
-export (int) var speed = 350
+export (int) var speed = 200
 
+var TIEMPO_INMUNIDAD = 4
 var velocity = Vector2()
-var inmune = true
+
 var acelerado = Vector2(0,0)
 
+var inmune
 var vidas = 3
+var puntos = 0
+
+func _ready():
+	inmune = $inmune
+	inmune.set_one_shot(true)
+	inmune.set_wait_time(TIEMPO_INMUNIDAD)
+	inmune.start()
 
 func get_input():
     velocity = Vector2()
@@ -29,10 +38,10 @@ func _physics_process(delta):
 		acelerado*=0.9
 
 func hit(direccion):
-	inmune = true
 	acelerado = -direccion
-	vidas -= 1
-	print("Vidas: ",vidas)
+	if(inmune.is_stopped()):
+		inmune.start()
+		vidas -= 1
 
-func _ready():
-	print("Comenzó el programa")
+func get_puntos():
+	return floor(puntos)

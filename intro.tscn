@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://intro.gd" type="Script" id=1]
+[ext_resource path="res://src/intro.gd" type="Script" id=1]
 [ext_resource path="res://assets/bola.png" type="Texture" id=2]
 [ext_resource path="res://assets/insecto.png" type="Texture" id=3]
 
