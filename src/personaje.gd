@@ -16,6 +16,7 @@ func _ready():
 	inmune.set_one_shot(true)
 	inmune.set_wait_time(TIEMPO_INMUNIDAD)
 	inmune.start()
+	$TextureRect.get_material().set_shader_param("inmune", true)
 
 func get_input():
     velocity = Vector2()
@@ -36,11 +37,16 @@ func _physics_process(delta):
 	else:
 		move_and_collide(acelerado*delta*400)
 		acelerado*=0.9
+	
+	if inmune.is_stopped():
+		$TextureRect.get_material().set_shader_param("inmune", false)
+
 
 func hit(direccion):
 	acelerado = -direccion
 	if(inmune.is_stopped()):
 		inmune.start()
+		$TextureRect.get_material().set_shader_param("inmune", true)
 		vidas -= 1
 
 func get_puntos():
