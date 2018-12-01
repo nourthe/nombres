@@ -2,6 +2,7 @@ extends Node
 
 var TAMANO_PANTALLA_X = 1024
 var TAMANO_PANTALLA_Y = 600
+var MARGEN_INSECTOS = 100
 
 var objetos
 var jugador
@@ -32,10 +33,12 @@ func addInsecto(posX, posY):
 	print("añadido")
 	var ins = preload("res://objects/insecto.tscn").instance()
 	add_child(ins)
+	leerObjetos()
 	
 	
 #Añade un insecto en una posicion aleatoria
 func addRandInsecto():
-	var x = rand_range(0,TAMANO_PANTALLA_X)
-	var y = rand_range(0,TAMANO_PANTALLA_Y)	
+	var mi = MARGEN_INSECTOS
+	var x = rand_range(mi,TAMANO_PANTALLA_X-mi)
+	var y = rand_range(mi,TAMANO_PANTALLA_Y-mi)	
 	addInsecto(x,y)

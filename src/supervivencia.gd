@@ -1,7 +1,7 @@
 extends "motor.gd"
 
 # Duracion de cada etapa en segundos
-var DURACION_ETAPA = 10
+var DURACION_ETAPA = 4
 
 var etapa
 

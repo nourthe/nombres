@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (int) var speed = 200
 
-var TIEMPO_INMUNIDAD = 4
+var TIEMPO_INMUNIDAD = 3.5
 var velocity = Vector2()
 
 var acelerado = Vector2(0,0)
