@@ -59,7 +59,7 @@ tracks/3/keys = {
 "values": [ 79.4016, 65.4655, 126.101, 115.561, 87.2734, 56.9793 ]
 }
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
