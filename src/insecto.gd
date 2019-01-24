@@ -1,17 +1,9 @@
 extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
 var LIMITE_ROTACION = 0.1
 var VELOCIDAD = 250
 var rotacion = 0
 var variacion = 0
-
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
 
 func _process(delta):
 	randomize()
