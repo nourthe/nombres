@@ -15,7 +15,6 @@ func _process(delta):
 	jugador.puntos += delta
 	if jugador.puntos >= etapa*DURACION_ETAPA :
 		addRandInsecto()
-		print("YYY**¨¨=)")
 		etapa += 1
 
 func actualizarTextos():
