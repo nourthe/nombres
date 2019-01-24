@@ -34,7 +34,7 @@ func addInsecto(posX, posY):
 	var ins = preload("res://objects/insecto.tscn").instance()
 	add_child(ins)
 	leerObjetos()
-	
+
 	
 #Añade un insecto en una posicion aleatoria
 func addRandInsecto():
@@ -42,3 +42,6 @@ func addRandInsecto():
 	var x = rand_range(mi,TAMANO_PANTALLA_X-mi)
 	var y = rand_range(mi,TAMANO_PANTALLA_Y-mi)	
 	addInsecto(x,y)
+	
+func gameOver():
+	get_tree().change_scene("res://escenas/game_over.tscn")

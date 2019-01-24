@@ -16,6 +16,8 @@ func _process(delta):
 	if jugador.puntos >= etapa*DURACION_ETAPA :
 		addRandInsecto()
 		etapa += 1
+	if jugador.vidas < 0 :
+		gameOver()
 
 func actualizarTextos():
 	$textos/puntos.set_text(String(jugador.get_puntos()))
