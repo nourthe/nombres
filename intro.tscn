@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/intro.gd" type="Script" id=1]
 [ext_resource path="res://assets/bola.png" type="Texture" id=2]
 [ext_resource path="res://assets/insecto.png" type="Texture" id=3]
+[ext_resource path="res://objects/personaje.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 
 resource_name = "mueve_bola"
-length = 3.0
+length = 3.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("bola:rect_position")
 tracks/0/interp = 2
@@ -56,6 +57,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [ 79.4016, 65.4655, 126.101, 115.561, 87.2734, 56.9793 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("KinematicBody2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -57.6653, 258.175 ), Vector2( 1076.21, 272.415 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("KinematicBody2D/cola:process_material:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.5 ]
+}
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
@@ -64,18 +89,26 @@ script = ExtResource( 1 )
 anims/mueve_bola = SubResource( 1 )
 
 [node name="bola" type="TextureRect" parent="."]
-margin_left = -99.7214
-margin_top = 188.494
-margin_right = 0.278587
-margin_bottom = 288.494
+visible = false
+margin_left = 1042.0
+margin_top = 215.0
+margin_right = 1142.0
+margin_bottom = 315.0
+rect_pivot_offset = Vector2( -970.279, -268.494 )
 texture = ExtResource( 2 )
 
 [node name="insecto" type="TextureRect" parent="."]
-margin_left = -149.0
-margin_top = 202.0
-margin_right = -49.0
-margin_bottom = 432.0
-rect_rotation = 78.2368
+margin_left = 1155.0
+margin_top = 151.0
+margin_right = 1255.0
+margin_bottom = 381.0
+rect_rotation = 56.9793
 texture = ExtResource( 3 )
 
+[node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1076.21, 272.415 )
+scale = Vector2( 1, 1 )
+
 [connection signal="animation_finished" from="intro" to="." method="on_intro_end"]
+
+[editable path="KinematicBody2D"]
