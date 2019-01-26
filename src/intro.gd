@@ -7,9 +7,9 @@ func _ready():
 func _unhandled_input(event):
 	if event is InputEventKey:
 		finalizar()
-	elif event is InputEventMouseButton:
+	elif event is InputEventMouse:
 		finalizar()
-
+		
 func on_intro_end(anim_name):
 	finalizar()
 	

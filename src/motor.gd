@@ -17,6 +17,7 @@ func _process(delta):
 	for objeto in objetos:
 		if objeto.get_class() == "KinematicBody2D":
 			comprobarPosicion(objeto)
+	
 
 func comprobarPosicion(obj):
 	if obj.position.x >TAMANO_PANTALLA_X:
@@ -44,6 +45,12 @@ func addRandInsecto():
 	var x = rand_range(mi,TAMANO_PANTALLA_X-mi)
 	var y = rand_range(mi,TAMANO_PANTALLA_Y-mi)	
 	addInsecto(x,y)
-	
+
+func reanudar():
+	get_node("pause_popup").hide()
+	get_tree().paused = false
+
 func gameOver():
 	get_tree().change_scene("res://escenas/game_over.tscn")
+func returnMenu():
+	get_tree().change_scene("res://escenas/menu.tscn")

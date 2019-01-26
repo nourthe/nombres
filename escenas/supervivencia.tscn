@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/supervivencia.gd" type="Script" id=1]
 [ext_resource path="res://objects/fondo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/personaje.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/personaje.gd" type="Script" id=4]
 [ext_resource path="res://objects/insecto.tscn" type="PackedScene" id=5]
+[ext_resource path="res://escenas/pause_popup.gd" type="Script" id=6]
 
 [node name="Juego" type="Node"]
 script = ExtResource( 1 )
@@ -38,3 +39,43 @@ margin_top = 1.0
 margin_right = 298.0
 margin_bottom = 15.0
 
+[node name="pause_popup" type="Popup" parent="."]
+pause_mode = 2
+script = ExtResource( 6 )
+
+[node name="CenterContainer" type="CenterContainer" parent="pause_popup"]
+anchor_right = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="GridContainer" type="GridContainer" parent="pause_popup/CenterContainer"]
+margin_left = 512.0
+margin_top = 300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Label" type="Label" parent="pause_popup/CenterContainer/GridContainer"]
+margin_right = 107.0
+margin_bottom = 31.0
+text = "Juego pausado
+"
+
+[node name="unpause" type="Button" parent="pause_popup/CenterContainer/GridContainer"]
+margin_top = 35.0
+margin_right = 107.0
+margin_bottom = 55.0
+text = "Quitar pausa"
+
+[node name="HSeparator" type="HSeparator" parent="pause_popup/CenterContainer/GridContainer"]
+margin_top = 59.0
+margin_right = 107.0
+margin_bottom = 63.0
+
+[node name="return_menu" type="Button" parent="pause_popup/CenterContainer/GridContainer"]
+margin_top = 67.0
+margin_right = 107.0
+margin_bottom = 87.0
+text = "Volver al Menú"
+
+[connection signal="pressed" from="pause_popup/CenterContainer/GridContainer/unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="pause_popup/CenterContainer/GridContainer/return_menu" to="." method="_on_return_menu_pressed"]

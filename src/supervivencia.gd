@@ -24,3 +24,11 @@ func actualizarTextos():
 	$textos/vidas.set_text("Vidas: " + String(jugador.vidas))
 	
 
+
+
+func _on_unpause_pressed():
+	reanudar()
+
+func _on_return_menu_pressed():
+	reanudar()
+	returnMenu()

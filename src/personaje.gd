@@ -42,7 +42,6 @@ func _physics_process(delta):
 	if inmune.is_stopped():
 		set_inmunidad_shader(false)
 
-
 func hit(direccion):
 	acelerado = -direccion
 	if(inmune.is_stopped()):

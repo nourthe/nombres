@@ -103,4 +103,16 @@ rotation = 0.0199304
 scale = Vector2( 0.7, 0.7 )
 corriendo = false
 
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_top = 540.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_left = 396.0
+margin_top = 23.0
+margin_right = 627.0
+margin_bottom = 37.0
+text = "Pulsa cualquier tecla para continuar."
+
 [connection signal="animation_finished" from="intro" to="." method="on_intro_end"]
