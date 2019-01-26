@@ -32,6 +32,8 @@ func comprobarPosicion(obj):
 func addInsecto(posX, posY):
 	print("añadido")
 	var ins = preload("res://objects/insecto.tscn").instance()
+	ins.position.x = posX
+	ins.position.y = posY
 	add_child(ins)
 	leerObjetos()
 
