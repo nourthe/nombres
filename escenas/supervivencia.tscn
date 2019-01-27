@@ -7,7 +7,6 @@
 [ext_resource path="res://objects/insecto.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/pause_popup.gd" type="Script" id=6]
 
-
 [node name="Juego" type="Node"]
 script = ExtResource( 1 )
 

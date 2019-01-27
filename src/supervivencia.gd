@@ -20,7 +20,7 @@ func _process(delta):
 		gameOver()
 
 func actualizarTextos():
-	$textos/puntos.set_text(String(jugador.get_puntos()))
+	$textos/puntos.set_text("Puntaje: " + String(jugador.get_puntos()))
 	$textos/vidas.set_text("Vidas: " + String(jugador.vidas))
 	
 
