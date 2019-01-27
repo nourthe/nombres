@@ -94,7 +94,13 @@ margin_left = 635.057
 margin_top = 564.928
 margin_right = 1002.06
 margin_bottom = 578.928
-text = "Realizado por Nahuel Ourthe http://github.com/redpanter"
+text = "Realizado por Nahuel Ourthe: http://github.com/redpanter"
+
+[node name="version" type="Label" parent="."]
+margin_left = 18.017
+margin_top = 564.928
+margin_right = 388.96
+margin_bottom = 578.928
 
 [connection signal="pressed" from="MarginContainer/botonera/aventura" to="." method="_on_aventura"]
 [connection signal="pressed" from="MarginContainer/botonera/super" to="." method="on_super"]

@@ -2,7 +2,7 @@ extends Node
 
 
 func _ready():
-	pass
+	$version.text = "Version: " + global.version
 
 func on_salir():
 	get_tree().quit()
