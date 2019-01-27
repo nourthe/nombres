@@ -19,6 +19,10 @@ config/name="insecto-mania"
 run/main_scene="res://intro.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+global="*res://src/global.gd"
+
 [input]
 
 pj_up={

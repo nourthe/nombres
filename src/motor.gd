@@ -51,6 +51,7 @@ func reanudar():
 	get_tree().paused = false
 
 func gameOver():
+	global.super_last_score = jugador.get_puntos()
 	get_tree().change_scene("res://escenas/game_over.tscn")
 func returnMenu():
 	get_tree().change_scene("res://escenas/menu.tscn")
