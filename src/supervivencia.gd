@@ -31,4 +31,4 @@ func _on_unpause_pressed():
 
 func _on_return_menu_pressed():
 	reanudar()
-	returnMenu()
+	global.return_menu()
