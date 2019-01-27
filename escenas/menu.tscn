@@ -16,14 +16,7 @@ custom_constants/margin_top = 80
 custom_constants/margin_left = 350
 custom_constants/margin_bottom = 80
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
-margin_left = 350.0
-margin_top = 80.0
-margin_right = 674.0
-margin_bottom = 520.0
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="botonera" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 350.0
 margin_top = 80.0
 margin_right = 674.0
@@ -32,24 +25,73 @@ size_flags_vertical = 3
 custom_constants/separation = 25
 alignment = 1
 
-[node name="aventura" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 165.0
+[node name="aventura" type="Button" parent="MarginContainer/botonera"]
+margin_top = 142.0
 margin_right = 324.0
-margin_bottom = 185.0
+margin_bottom = 162.0
 text = "Modo Aventura (En Construccion)"
 
-[node name="super" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 210.0
+[node name="super" type="Button" parent="MarginContainer/botonera"]
+margin_top = 187.0
 margin_right = 324.0
-margin_bottom = 230.0
+margin_bottom = 207.0
 text = "Modo Supervivencia"
 
-[node name="salir" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 255.0
+[node name="como" type="Button" parent="MarginContainer/botonera"]
+margin_top = 232.0
 margin_right = 324.0
-margin_bottom = 275.0
+margin_bottom = 252.0
+text = "Como Jugar"
+
+[node name="salir" type="Button" parent="MarginContainer/botonera"]
+margin_top = 277.0
+margin_right = 324.0
+margin_bottom = 297.0
 text = "Salir"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/aventura" to="." method="_on_aventura"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/super" to="." method="on_super"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/salir" to="." method="on_salir"]
+[node name="como_popup" type="Popup" parent="MarginContainer"]
+visible = true
+margin_left = 350.0
+margin_top = 80.0
+margin_right = 674.0
+margin_bottom = 520.0
+
+[node name="fondo" type="ColorRect" parent="MarginContainer/como_popup"]
+margin_left = -406.0
+margin_top = -103.0
+margin_right = 743.0
+margin_bottom = 550.0
+rect_clip_content = true
+color = Color( 0.141176, 0.141176, 0.141176, 0.52549 )
+
+[node name="relleno" type="ColorRect" parent="MarginContainer/como_popup"]
+margin_left = -19.0
+margin_top = -17.0
+margin_right = 350.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0313726, 0.313726, 0.109804, 1 )
+
+[node name="como_jugar" type="Label" parent="MarginContainer/como_popup"]
+margin_right = 288.0
+margin_bottom = 82.0
+text = "Si tocas un insecto te quitará una vida, cuando te quedas sin vidas finaliza el juego.
+Para desplazarte puedes usar las teclas WASD ó los cursores. 
+Pulsa [Escape] para pausar el juego."
+autowrap = true
+
+[node name="hide" type="Button" parent="MarginContainer/como_popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 198.0
+margin_top = 102.0
+margin_bottom = -313.0
+hint_tooltip = "Cerrar la ventana"
+text = "Cerrar"
+
+[connection signal="pressed" from="MarginContainer/botonera/aventura" to="." method="_on_aventura"]
+[connection signal="pressed" from="MarginContainer/botonera/super" to="." method="on_super"]
+[connection signal="pressed" from="MarginContainer/botonera/como" to="." method="_on_como"]
+[connection signal="pressed" from="MarginContainer/botonera/salir" to="." method="on_salir"]
+[connection signal="pressed" from="MarginContainer/como_popup/hide" to="." method="_on_como_hide"]
