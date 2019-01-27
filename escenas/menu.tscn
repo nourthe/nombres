@@ -50,7 +50,6 @@ margin_bottom = 297.0
 text = "Salir"
 
 [node name="como_popup" type="Popup" parent="MarginContainer"]
-visible = true
 margin_left = 350.0
 margin_top = 80.0
 margin_right = 674.0
