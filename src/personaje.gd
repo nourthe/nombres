@@ -52,8 +52,11 @@ func _physics_process(delta):
 			var resultado = get_parent().remover_objeto(collision.collider)
 			if resultado:
 				disparos += 5
+				$disparo.show()
 	if inmune.is_stopped():
 		set_inmunidad_shader(false)
+	if velocity != Vector2.ZERO:
+		$disparo.rotation = velocity.angle()
 
 func hit(direccion):
 	acelerado = -direccion
@@ -66,6 +69,8 @@ func disparar():
 	if disparos > 0 and delay_disparo.is_stopped():
 		delay_disparo.start()
 		disparos -= 1
+		if disparos == 0:
+			$disparo.hide()
 func get_puntos():
 	return floor(puntos)
 	
