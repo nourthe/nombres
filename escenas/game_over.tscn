@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/game_over.gd" type="Script" id=1]
 [ext_resource path="res://objects/fondo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/themes/menu_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/themes/menu/menu_hover.tres" type="StyleBox" id=4]
+[ext_resource path="res://assets/themes/menu/menu_pressed.tres" type="StyleBox" id=5]
+[ext_resource path="res://assets/themes/menu/button_focus.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/themes/menu/button_disabled.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets/themes/menu/button_normal.tres" type="StyleBox" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -31,10 +37,16 @@ valign = 1
 uppercase = true
 
 [node name="volver" type="Button" parent="."]
-margin_left = 140.119
-margin_top = 500.618
-margin_right = 245.119
-margin_bottom = 520.618
+margin_left = 140.0
+margin_top = 501.0
+margin_right = 304.0
+margin_bottom = 521.0
+theme = ExtResource( 3 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 8 )
 text = "Jugar de nuevo"
 
 [node name="menu" type="Button" parent="."]
@@ -42,6 +54,12 @@ margin_left = 735.962
 margin_top = 499.257
 margin_right = 840.962
 margin_bottom = 519.257
+theme = ExtResource( 3 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 6 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 8 )
 text = "Menú"
 
 [connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]
