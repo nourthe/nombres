@@ -61,4 +61,8 @@ margin_bottom = 50.0
 texture = ExtResource( 2 )
 
 [node name="inmune" type="Timer" parent="."]
+one_shot = true
+
+[node name="delay_disparo" type="Timer" parent="."]
+one_shot = true
 

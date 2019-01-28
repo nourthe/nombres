@@ -12,11 +12,22 @@ func _ready():
 	
 func leerObjetos():
 	objetos = get_children()
+func remover_objeto(obj):
+	if objetos.find(obj) == -1 :
+		return false
+	else:
+		objetos.erase(obj)
+		obj.queue_free()
+		return true
 
 func _process(delta):
 	for objeto in objetos:
 		if objeto.get_class() == "KinematicBody2D":
 			comprobarPosicion(objeto)
+		if objeto.get_class() == "StaticBody2D":
+			objeto.scale = objeto.scale*(1-delta*0.25)
+			if objeto.scale.x < 0.2:
+				remover_objeto(objeto)
 	
 
 func comprobarPosicion(obj):
@@ -28,22 +39,35 @@ func comprobarPosicion(obj):
 		obj.position.y = 0
 	elif obj.position.y < 0:
 		obj.position.y = TAMANO_PANTALLA_Y
-
+		
+#Añade el objecto [objectString] en la posición (posX,posY)
+func addObject(objectString, posX, posY):
+	var obj
+	match objectString:
+		"insecto":
+			obj = preload("res://objects/insecto.tscn").instance()
+		"insecticida":
+			obj = preload("res://objects/insecticida.tscn").instance()
+	obj.position.x = posX
+	obj.position.y = posY
+	add_child(obj)
+	leerObjetos()
+	
 #Añade un insecto en la posicion (posX,posY)
 func addInsecto(posX, posY):
-	var ins = preload("res://objects/insecto.tscn").instance()
-	ins.position.x = posX
-	ins.position.y = posY
-	add_child(ins)
-	leerObjetos()
-
+	addObject("insecto", posX, posY)
+	
+#Añade un insecticida en la posición (posX,posY)
+func addInsecticida(posX, posY):
+	addObject("insecticida", posX, posY)
 	
 #Añade un insecto en una posicion aleatoria
-func addRandInsecto():
+func addRandObject(objectString):
 	var mi = MARGEN_INSECTOS
+	randomize()
 	var x = rand_range(mi,TAMANO_PANTALLA_X-mi)
 	var y = rand_range(mi,TAMANO_PANTALLA_Y-mi)	
-	addInsecto(x,y)
+	addObject(objectString, x, y)
 
 func reanudar():
 	get_node("pause_popup").hide()

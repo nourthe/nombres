@@ -3,18 +3,24 @@ extends KinematicBody2D
 export (int) var speed = 200
 
 var TIEMPO_INMUNIDAD = 3.5
+var DELAY_DISPARO = 1
+
 var velocity = Vector2()
 
 var acelerado = Vector2(0,0)
 
 var inmune
+var delay_disparo
+
 var vidas = 3
 var puntos = 0
+var disparos = 0
 
 func _ready():
 	inmune = $inmune
-	inmune.set_one_shot(true)
+	delay_disparo = $delay_disparo
 	inmune.set_wait_time(TIEMPO_INMUNIDAD)
+	delay_disparo.set_wait_time(DELAY_DISPARO)
 	inmune.start()
 	set_inmunidad_shader(true)
 
@@ -30,15 +36,22 @@ func get_input():
     if Input.is_action_pressed('pj_up'):
         velocity.y -= 1
     velocity = velocity.normalized() * speed
-
+func _input(event):
+	if Input.is_action_pressed("pj_shoot"):
+		disparar()
 func _physics_process(delta):
+	var collision
 	if acelerado.length()<0.2:
 		get_input()
-		var collision = move_and_collide(velocity * delta)
+		collision = move_and_collide(velocity * delta)
 	else:
-		move_and_collide(acelerado*delta*400)
+		collision = move_and_collide(acelerado*delta*400)
 		acelerado*=0.9
-	
+	if collision:
+		if collision.collider is StaticBody2D:
+			var resultado = get_parent().remover_objeto(collision.collider)
+			if resultado:
+				disparos += 5
 	if inmune.is_stopped():
 		set_inmunidad_shader(false)
 
@@ -49,6 +62,10 @@ func hit(direccion):
 		set_inmunidad_shader(true)
 		vidas -= 1
 
+func disparar():
+	if disparos > 0 and delay_disparo.is_stopped():
+		delay_disparo.start()
+		disparos -= 1
 func get_puntos():
 	return floor(puntos)
 	
