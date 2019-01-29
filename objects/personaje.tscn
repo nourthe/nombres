@@ -41,7 +41,7 @@ shader_param/VEL = 5.0
 
 extents = Vector2( 29.157, 6.27036 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="personaje" type="KinematicBody2D"]
 scale = Vector2( 0.5, 0.5 )
 
 [node name="cola" type="Particles2D" parent="."]
@@ -85,3 +85,4 @@ texture = ExtResource( 4 )
 position = Vector2( 28.4677, -0.50374 )
 shape = SubResource( 7 )
 
+[connection signal="body_entered" from="disparo" to="disparo" method="_on_disparo_body_entered"]
