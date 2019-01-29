@@ -68,6 +68,7 @@ func hit(direccion):
 func disparar():
 	if disparos > 0 and delay_disparo.is_stopped():
 		delay_disparo.start()
+		$disparo.disparar()
 		disparos -= 1
 		if disparos == 0:
 			$disparo.hide()
