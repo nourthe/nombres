@@ -1,0 +1,3 @@
+#Comandos base de muchos Linux
+blkid : muestra las particiones, sus labels, UUID y tipo.
+ntfsfix /dev/sda1 : arreglar ntfs cuando no lo lee.

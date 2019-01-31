@@ -1,0 +1,23 @@
+##Buscar información de paquetes
+http://archlinux.org/packages/
+
+##Buscar aplicacion
+pacman -Ss aplicacion
+
+##Instalar aplicacion
+sudo pacman -S aplicacion
+
+##Instalar con yaourt (NO ROOT)
+yaourt -S aplicacion --noconfirm
+
+##Eliminar aplicacion
+sudo pacman -R aplicacion
+
+##Eliminar aplicacion, dependencias huérfanas(s) y archivos de configuracion publicos(n)
+sudo pacman -Rsn
+
+##Actualizar sistema
+sudo pacman -Syu
+
+## Añadir claves
+gpg --recv-keys 0FC3042E345AD05D

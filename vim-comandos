@@ -1,0 +1,23 @@
+i ( pasamos al modo insercion ).
+<Esc> ( salir del modo insercion ).
+h
+j
+k
+l
+
+w se mueve una palabra hacia adelante.
+W  " ignorando simbolos separadores (,,.,etc)
+b nos movemos una palabra hacia atras.
+B  W idem
+e nos movemos al final de la palabra.
+E  W idem
+ge nos movemos al final de la palabra previa.
+gE W idem
+
+f para buscar cars proximos (hacia adelante).
+F para buscar cars proximos (hacia atras).
+; busca la siguiente coincidencia
+, busca la coincidencia precvia
+
+: activamos el modo de comandos
+:s/viejo/nuevo/gc reemplazamos 'viejo' por 'nuevo'. con 'g' decimos que se fije no solo en el primer match, con 'c' decimos que pida confirmación para cada match

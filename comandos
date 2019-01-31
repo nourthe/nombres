@@ -1,0 +1,31 @@
+#Comandos solicitados de vez en cuando
+#youtube-dl
+    MP3: youtube-dl --extract-audio --audio-format mp3 <video URL>
+    shorter: -x, --extract-audio 
+
+#mpv
+    music&random: mpv <url(maybe-playlist)> --no-video --shuffle
+
+#Ejecutar con software accel. (compatibilidad OpenGL 3)
+	LIBGL_ALWAYS_SOFTWARE=1 <binario a ejecutar>
+
+#Compresión y Descompresión de Archivos
+    ##Archivos .tar.gz:
+        Comprimir: tar -czvf empaquetado.tar.gz /carpeta/a/empaquetar/
+        Descomprimir: tar -xzvf archivo.tar.gz
+
+    ##Archivos .tar:
+        Empaquetar: tar -cvf paquete.tar /dir/a/comprimir/
+        Desempaquetar: tar -xvf paquete.tar
+
+    ##Archivos .gz:
+        Comprimir: gzip -9 index.php
+        Descomprimir: gzip -d index.php.gz
+
+    ##Archivos .zip:
+        Comprimir: zip archivo.zip carpeta
+        Descomprimir: unzip archivo.zip
+
+#PDF merge:
+    pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf
+

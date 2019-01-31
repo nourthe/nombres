@@ -1,0 +1,29 @@
+#Principales
+vim
+chromium
+###bropages:
+	libgemplugin-ruby
+	gem
+	gem install bropages
+mpv
+tmux
+trash-cli
+
+#Secundarios
+wine
+speedtest-cli
+###c++ dev. package:
+	build-essential
+
+#Ubuntu
+
+###instalar bigbluebutton:
+	wget -qO- https://ubuntu.bigbluebutton.org/bbb-install.sh | bash -s -- -v xenial-200 -s pacha.sytes.net -e nahuelourthe1996@gmail.com -t
+
+###Para instalar un .deb:
+	dpkg -i .deb
+###En caso de error de dependencias:
+	apt-get install -f
+
+###flash player: (https://wiki.debian.org/es/FlashPlayer)
+            https://labs.adobe.com/downloads/flashplayer.html

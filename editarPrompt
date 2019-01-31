@@ -1,0 +1,44 @@
+#Para editar, editar la variable $PS1
+\a un caracter ASCII de ring
+\d la fecha actual en formato "dia_sem mes día", "dom nov 18"
+\e un caracter ASCII de escape
+\h el nombre del equipo hasta el primer ., ejemplo linuxtotal de linuxtotal.com.mx
+\H el nombre del equipo
+\n nueva línea
+\r retorno de carro, enter
+\s el nombre del shell
+\t el tiempo actual en formato de 24 horas HH:MM:SS
+\T el tiempo actual en formato de 12 horas HH:MM:SS
+\@ el tiempo actual en formaro de 12 horas con am/pm
+\u el usuario actual
+\v la version de bash
+\V el número de release de batch, versión + parche
+\w el directorio de trabajo actual, path
+\W el nombre del directorio actual
+\! el número en el historial del comando
+\# el número de comando de este comando
+\$ si el usuario es root (UID=0) se indica un '#', un usuario normal '$'
+\\ diagonal
+\[ inicio de una secuencia de caracteres no imprimibles
+\] fin de la secuencia de caracteres no imprimibles
+#Conociendo lo anterior podemos ahora tener un nuevo prompt:
+[sergio@linuxtotal etc]$ PS1='(\t)[\u-\W]\$> '
+(19:26:02)[sergon-etc]$>
+#Solo se indica el cambio a PS1, con PS1=' ', entre las comillas simples va la nueva secuencia que se desea, asi que personaliza el tuyo.
+
+#Añade color a tu prompt
+El shell esta lleno comandos muy poco usados, uno de estos es tput, que permite cambiar las características o capacidades disponibles para la terminal, disponibles a través de la base de datos llamada terminfo. Entre las características (hay bastantes) que podemos modificar de una terminal están el color de fondo y de frente (background y foreground) del texto a través de las siguientes opciones:
+setaf [0-7] cambia el color de frente
+setab [0-7] cambia el color de fondo
+bold modo negritas
+dim modo de poco brillo
+sgr0 apaga las características o atributos que se hayan indicado previamente
+En cuanto a los códigos de color son los siguientes
+0 negro
+1 rojo
+2 verde
+3 cafe
+4 azul
+5 morado
+6 cyan
+7 gris
