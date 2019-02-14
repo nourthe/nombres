@@ -58,4 +58,5 @@ margin_bottom = 540.0
 theme = ExtResource( 4 )
 text = "Volver al menú"
 
+[connection signal="pressed" from="botonera/1" to="." method="_on_1"]
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

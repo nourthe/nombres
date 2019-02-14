@@ -28,11 +28,3 @@ func actualizarTextos():
 	$textos/puntos.set_text("Puntaje: " + String(jugador.get_puntos()))
 	$textos/vidas.set_text("Vidas: " + String(jugador.vidas))
 	$textos/disparos.set_text("Disparos: " + String(jugador.disparos))
-
-
-func _on_unpause_pressed():
-	reanudar()
-
-func _on_return_menu_pressed():
-	reanudar()
-	global.return_menu()

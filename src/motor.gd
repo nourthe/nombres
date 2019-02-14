@@ -10,6 +10,10 @@ var jugador
 func _ready():
 	leerObjetos()
 	
+func tapizar():
+	$fondo/tapiz.rect_size.x = TAMANO_PANTALLA_X
+	$fondo/tapiz.rect_size.y = TAMANO_PANTALLA_Y
+	
 func leerObjetos():
 	objetos = get_children()
 func remover_objeto(obj):

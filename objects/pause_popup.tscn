@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/themes/menu_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/pause_popup.gd" type="Script" id=2]
+
+[node name="pause_popup" type="Popup"]
+pause_mode = 2
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+use_top_left = true
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer"]
+margin_right = 248.0
+margin_bottom = 71.0
+text = "Juego pausado. puedes pulsar
+[Escape] para continuar.
+"
+
+[node name="unpause" type="Button" parent="CenterContainer/GridContainer"]
+margin_top = 75.0
+margin_right = 248.0
+margin_bottom = 104.0
+text = "Quitar pausa"
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/GridContainer"]
+margin_top = 108.0
+margin_right = 248.0
+margin_bottom = 112.0
+
+[node name="return_menu" type="Button" parent="CenterContainer/GridContainer"]
+margin_top = 116.0
+margin_right = 248.0
+margin_bottom = 145.0
+text = "Volver al Menú"
+
+[connection signal="pressed" from="CenterContainer/GridContainer/unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/return_menu" to="." method="_on_return_menu_pressed"]

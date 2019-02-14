@@ -14,3 +14,15 @@ func _input(event):
 	if Input.is_action_pressed('pause'):
 		visible = !visible
 		get_tree().paused = visible
+		rect_position = get_parent().get_node("jugador").position
+
+
+func _on_unpause_pressed():
+	if get_parent().has_method("reanudar"):
+		get_parent().reanudar()
+
+
+func _on_return_menu_pressed():
+	if get_parent().has_method("reanudar"):
+		get_parent().reanudar()
+	global.return_menu()

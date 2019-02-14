@@ -4,7 +4,7 @@
 
 [node name="fondo" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="tapiz" type="TextureRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
 texture = ExtResource( 1 )
