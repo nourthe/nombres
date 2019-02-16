@@ -6,7 +6,6 @@ var DURACION_ETAPA = 4
 var etapa
 
 func _ready():
-	jugador = $jugador
 	jugador.puntos = 0
 	etapa = 1
 
@@ -18,7 +17,6 @@ func _process(delta):
 		etapa += 1
 		randomize()
 		var rand = rand_range(0,3)
-		print(rand)
 		if(rand<1):
 			addRandObject("insecticida")
 	if jugador.vidas < 1 :

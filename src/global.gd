@@ -9,3 +9,5 @@ func _ready():
 	pass
 func return_menu():
 	get_tree().change_scene("res://escenas/menu.tscn")
+func return_av_menu():
+	get_tree().change_scene("res://escenas/menu_aventura.tscn")

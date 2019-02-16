@@ -40,18 +40,19 @@ func _input(event):
 	if Input.is_action_pressed("pj_shoot"):
 		disparar()
 func _physics_process(delta):
-	var collision
-	if acelerado.length()<0.2:
-		get_input()
-		collision = move_and_collide(velocity * delta)
-	else:
-		collision = move_and_collide(acelerado*delta*400)
-		acelerado*=0.9
-	if collision:
-		if collision.collider is StaticBody2D:
-			var resultado = get_parent().remover_objeto(collision.collider)
-			if resultado:
-				disparos += 5
+	if vidas > 0:
+		var collision
+		if acelerado.length()<0.2:
+			get_input()
+			collision = move_and_collide(velocity * delta)
+		else:
+			collision = move_and_collide(acelerado*delta*400)
+			acelerado*=0.9
+		if collision:
+			if collision.collider is StaticBody2D:
+				var resultado = get_parent().remover_objeto(collision.collider)
+				if resultado:
+					disparos += 5
 				$disparo.show()
 	if inmune.is_stopped():
 		set_inmunidad_shader(false)
@@ -64,6 +65,9 @@ func hit(direccion):
 		inmune.start()
 		set_inmunidad_shader(true)
 		vidas -= 1
+
+func morir():
+	vidas = 0
 
 func disparar():
 	if disparos > 0 and delay_disparo.is_stopped():

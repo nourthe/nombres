@@ -6,3 +6,20 @@
 [node name="1" index="0" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="exit" parent="." index="1"]
+editor/display_folded = true
+position = Vector2( 1886.18, 704.884 )
+
+[node name="jugador" parent="." index="2"]
+editor/display_folded = true
+
+[node name="return" parent="logrado_popup/CenterContainer/GridContainer" index="3"]
+text = "Selecci[on de Nivel"
+
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
+[connection signal="pressed" from="logrado_popup/CenterContainer/GridContainer/siguiente" to="." method="_on_siguiente_pressed"]
+[connection signal="pressed" from="logrado_popup/CenterContainer/GridContainer/return" to="." method="_on_return_pressed"]
+
+[editable path="jugador"]
+
+[editable path="pause_popup"]

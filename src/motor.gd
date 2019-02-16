@@ -8,6 +8,7 @@ var objetos
 var jugador
 
 func _ready():
+	jugador = $jugador
 	leerObjetos()
 	
 func tapizar():
