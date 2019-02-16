@@ -12,6 +12,7 @@ var acelerado = Vector2(0,0)
 var inmune
 var delay_disparo
 
+var vivo = true
 var vidas = 3
 var puntos = 0
 var disparos = 0
@@ -40,7 +41,7 @@ func _input(event):
 	if Input.is_action_pressed("pj_shoot"):
 		disparar()
 func _physics_process(delta):
-	if vidas > 0:
+	if vivo:
 		var collision
 		if acelerado.length()<0.2:
 			get_input()
@@ -67,7 +68,7 @@ func hit(direccion):
 		vidas -= 1
 
 func morir():
-	vidas = 0
+	vivo = false
 
 func disparar():
 	if disparos > 0 and delay_disparo.is_stopped():

@@ -57,6 +57,7 @@ position = Vector2( 1.25439, 0.836243 )
 shape = SubResource( 1 )
 
 [node name="jugador" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( 515.12, 288.327 )
 script = ExtResource( 4 )
 
@@ -70,6 +71,7 @@ anchor_mode = 0
 current = true
 
 [node name="pause_popup" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
 
 [node name="seleccion" type="Button" parent="pause_popup/CenterContainer/GridContainer" index="3"]
 margin_right = 40.0
@@ -82,35 +84,82 @@ margin_bottom = 4.0
 
 [node name="logrado_popup" type="Popup" parent="."]
 
-[node name="CenterContainer" type="CenterContainer" parent="logrado_popup"]
+[node name="cc" type="CenterContainer" parent="logrado_popup"]
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 6 )
 use_top_left = true
 
-[node name="GridContainer" type="GridContainer" parent="logrado_popup/CenterContainer"]
+[node name="gc" type="GridContainer" parent="logrado_popup/cc"]
 
-[node name="Label" type="Label" parent="logrado_popup/CenterContainer/GridContainer"]
+[node name="Label" type="Label" parent="logrado_popup/cc/gc"]
 margin_right = 237.0
 margin_bottom = 27.0
 text = "¡Excelente! Pasaste de nivel."
 
-[node name="siguiente" type="Button" parent="logrado_popup/CenterContainer/GridContainer"]
+[node name="siguiente" type="Button" parent="logrado_popup/cc/gc"]
 margin_top = 31.0
 margin_right = 237.0
 margin_bottom = 60.0
 text = "Siguiente Nivel"
 
-[node name="HSeparator" type="HSeparator" parent="logrado_popup/CenterContainer/GridContainer"]
+[node name="HSeparator" type="HSeparator" parent="logrado_popup/cc/gc"]
 margin_top = 64.0
 margin_right = 237.0
 margin_bottom = 68.0
 
-[node name="return" type="Button" parent="logrado_popup/CenterContainer/GridContainer"]
+[node name="return" type="Button" parent="logrado_popup/cc/gc"]
 margin_top = 72.0
 margin_right = 237.0
 margin_bottom = 101.0
-text = "Volver al menú"
+text = "Selección de Nivel"
+
+[node name="perdido_popup" type="Popup" parent="."]
+editor/display_folded = true
+
+[node name="cc" type="CenterContainer" parent="perdido_popup"]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 6 )
+use_top_left = true
+
+[node name="gc" type="GridContainer" parent="perdido_popup/cc"]
+
+[node name="Label" type="Label" parent="perdido_popup/cc/gc"]
+margin_right = 239.0
+margin_bottom = 27.0
+text = "Perdiste. Vuelve a intentarlo."
+
+[node name="reintentar" type="Button" parent="perdido_popup/cc/gc"]
+margin_top = 31.0
+margin_right = 239.0
+margin_bottom = 60.0
+text = "Reintentar Nivel"
+
+[node name="HSeparator" type="HSeparator" parent="perdido_popup/cc/gc"]
+margin_top = 64.0
+margin_right = 239.0
+margin_bottom = 68.0
+
+[node name="return" type="Button" parent="perdido_popup/cc/gc"]
+margin_top = 72.0
+margin_right = 239.0
+margin_bottom = 101.0
+text = "Selección de Nivel"
+
+[node name="presentacion" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="cc" type="CenterContainer" parent="presentacion"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Label" type="Label" parent="presentacion/cc"]
+margin_left = 389.0
+margin_top = 293.0
+margin_right = 635.0
+margin_bottom = 307.0
 
 [node name="animacion" type="AnimationPlayer" parent="."]
 anims/logrado = SubResource( 2 )

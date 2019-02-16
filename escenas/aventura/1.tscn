@@ -10,15 +10,14 @@ script = ExtResource( 2 )
 editor/display_folded = true
 position = Vector2( 1886.18, 704.884 )
 
-[node name="jugador" parent="." index="2"]
-editor/display_folded = true
+[node name="logrado_popup" parent="." index="4"]
+editor/display_folded = false
 
-[node name="return" parent="logrado_popup/CenterContainer/GridContainer" index="3"]
-text = "Selecci[on de Nivel"
+[node name="Label" parent="presentacion/cc" index="0"]
+margin_left = 512.0
+margin_right = 512.0
 
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]
-[connection signal="pressed" from="logrado_popup/CenterContainer/GridContainer/siguiente" to="." method="_on_siguiente_pressed"]
-[connection signal="pressed" from="logrado_popup/CenterContainer/GridContainer/return" to="." method="_on_return_pressed"]
 
 [editable path="jugador"]
 
