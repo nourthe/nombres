@@ -40,6 +40,18 @@ tracks/1/keys = {
 "method": "morir"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("jugador/cola:process_material:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.5, 0.01 ]
+}
 
 [node name="base" type="Node2D"]
 
@@ -57,7 +69,6 @@ position = Vector2( 1.25439, 0.836243 )
 shape = SubResource( 1 )
 
 [node name="jugador" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( 515.12, 288.327 )
 script = ExtResource( 4 )
 
@@ -156,9 +167,9 @@ margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="Label" type="Label" parent="presentacion/cc"]
-margin_left = 389.0
+margin_left = 512.0
 margin_top = 293.0
-margin_right = 635.0
+margin_right = 512.0
 margin_bottom = 307.0
 
 [node name="animacion" type="AnimationPlayer" parent="."]

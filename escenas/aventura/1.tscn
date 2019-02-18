@@ -10,8 +10,11 @@ script = ExtResource( 2 )
 editor/display_folded = true
 position = Vector2( 1886.18, 704.884 )
 
-[node name="logrado_popup" parent="." index="4"]
+[node name="jugador" parent="." index="2"]
 editor/display_folded = false
+
+[node name="logrado_popup" parent="." index="4"]
+editor/display_folded = true
 
 [node name="Label" parent="presentacion/cc" index="0"]
 margin_left = 512.0
