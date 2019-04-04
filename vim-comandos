@@ -21,3 +21,22 @@ F para buscar cars proximos (hacia atras).
 
 : activamos el modo de comandos
 :s/viejo/nuevo/gc reemplazamos 'viejo' por 'nuevo'. con 'g' decimos que se fije no solo en el primer match, con 'c' decimos que pida confirmación para cada match
+
+
+#FOLDS
+zf{moving} fold
+zd delete
+zD delete recursively
+zc close
+zC close recursively
+zo open
+zO open recursively
+za alternate
+zA alternate recursively
+
+zr open all file folds one level
+zR open all file folds one level recursively
+zm close all file folds one level
+zM close all file folds one level recursively
+
+
