@@ -13,7 +13,7 @@ func _ready():
 func _process(delta):
 	actualizarTextos()
 	jugador.puntos += delta
-	
+	actualizarEtapa()
 	if jugador.vidas < 1 :
 		gameOver()
 
@@ -24,9 +24,9 @@ func actualizarTextos():
 
 func actualizarEtapa():
 	if jugador.puntos >= etapa*DURACION_ETAPA :
-		addRandObject("insecto")
+		addRandObject("insecto", Rect2(jugador.position - Vector2(100,100), Vector2(200, 200)))
 		etapa += 1
 		randomize()
 		var rand = rand_range(0,100)
 		if rand < PROBABILIDAD_INSECTICIDA*100 :
-			addRandObject("insecticida")
+			addRandObject("insecticida", Rect2(jugador.position - Vector2(100,100), Vector2(200, 200)))

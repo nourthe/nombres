@@ -18,7 +18,6 @@ func _process(delta):
 			queue_free()
 	else:
 		var dif = (1 - get_parent().get_node("delay_disparo").time_left * 0.63)
-		print(dif)
 		modulate.g = dif
 		modulate.b = dif
 
