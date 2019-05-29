@@ -21,3 +21,9 @@ sudo pacman -Syu
 
 ## Añadir claves
 gpg --recv-keys 0FC3042E345AD05D
+
+## Limpiar Caché no usada (paquetes desinstalados)
+sudo pacman -Sc
+
+## Limpiar toda la caché
+sudo pacman -Scc
