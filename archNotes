@@ -22,6 +22,11 @@ sudo pacman -Syu
 ## Añadir claves
 gpg --recv-keys 0FC3042E345AD05D
 
+## Actualizar claves porque aparece "no válido o dañado"
+sudo pacman -Syy
+sudo pacman-key --refresh-keys
+sudo pacman-key --populate archlinux manjaro # o antergos
+
 ## Limpiar Caché no usada (paquetes desinstalados)
 sudo pacman -Sc
 

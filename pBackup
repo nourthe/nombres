@@ -1,3 +1,4 @@
+#Ubicaciones que necesitan backup al quitar un S.O.
+
 /etc/hosts
 /etc/NetworkManager/system-connections
-
