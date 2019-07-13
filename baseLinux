@@ -1,3 +1,9 @@
 #Comandos base de muchos Linux
 blkid : muestra las particiones, sus labels, UUID y tipo.
 ntfsfix /dev/sda1 : arreglar ntfs cuando no lo lee.
+# SWAP
+swapon -s : muestra las particiones y archivos swap.
+dd if=/dev/zero of=/var/swap bs=4096k count=1024 : Crea un archivo vacío de 4GB.
+chmod 600 /var/swap : modifica los permisos por seguridad.
+mkswap /var/swap : Configura el archivo para poder usarlo como swap.
+swapon /var/swap : Activa el archivo de swap.
