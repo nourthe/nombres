@@ -1,5 +1,7 @@
 #Principales
 vim
+ctags
+cscope
 chromium
 ###bropages:
 	libgemplugin-ruby
