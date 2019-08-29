@@ -39,4 +39,9 @@ zR open all file folds one level recursively
 zm close all file folds one level
 zM close all file folds one level recursively
 
-
+#Command abbreviations
+:edit = :e
+:write = :w
+:wqall = :wqa
+:wall = :wa
+:on = :only
