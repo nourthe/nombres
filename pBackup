@@ -1,3 +1,6 @@
+#Restaurar dotfiles
+curl -Lks http://bit.ly/nourthe-dots | /bin/bash
+
 #Ubicaciones que necesitan backup al quitar un S.O.
 
 /etc/hosts
