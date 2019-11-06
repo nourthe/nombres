@@ -5,12 +5,18 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ctags
 cscope
 chromium
+
+## Git
+git
+gitk
+tk
+tcl
+
 ###bropages:
 	libgemplugin-ruby
 	gem
 	gem install bropages
-mpv
-tmux
+
 trash-cli
 gnome-shell-extension-topicons
 
