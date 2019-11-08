@@ -1,8 +1,12 @@
 #Principales
 vim
+chromium
+trash-cli
+
+## C development
+gdb
 ctags
 cscope
-chromium
 
 ## Git
 git
@@ -15,7 +19,6 @@ tcl
 	gem
 	gem install bropages
 
-trash-cli
 gnome-shell-extension-topicons
 
 #Secundarios
