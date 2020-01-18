@@ -4,6 +4,8 @@ emacs
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 chromium
 trash-cli
+## My Dotfiles
+	curl -Lks http://bit.ly/nourthedotfiles | /bin/bash
 
 ## C development
 gdb
