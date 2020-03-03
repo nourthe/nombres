@@ -9,6 +9,7 @@ jumpapp
 	curl -Lks http://bit.ly/nourthedotfiles | /bin/bash
 
 ## C development
+gcc
 gdb
 ctags
 cscope
@@ -18,6 +19,9 @@ git
 gitk
 tk
 tcl
+
+## PHP (emacs phpactor)
+composer
 
 ###bropages:
 	libgemplugin-ruby
