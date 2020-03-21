@@ -33,6 +33,9 @@ sudo pacman -Sc
 ## Limpiar toda la caché
 sudo pacman -Scc
 
+## Desbloquear repositorios (estar seguros que nadie los está usando)
+sudo rm /var/lib/pacman/db.lck
+
 # Manjaro
 won't start until mouse move:
 	install and enable haveged

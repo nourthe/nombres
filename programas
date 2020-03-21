@@ -1,7 +1,16 @@
 #Principales
 vim
 emacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+chromium
+trash-cli
+jumpapp
+## My Dotfiles
+	curl -Lks http://bit.ly/nourthedotfiles | /bin/bash
+
+## C development
+gcc
+gdb
 ctags
 cscope
 chromium
@@ -13,12 +22,14 @@ gitk
 tk
 tcl
 
+## PHP (emacs phpactor)
+composer
+
 ###bropages:
 	libgemplugin-ruby
 	gem
 	gem install bropages
 
-trash-cli
 gnome-shell-extension-topicons
 
 #Secundarios

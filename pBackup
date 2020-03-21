@@ -5,3 +5,4 @@ curl -Lks http://bit.ly/nourthe-dots | /bin/bash
 
 /etc/hosts
 /etc/NetworkManager/system-connections
+/etc/sudoers #WINDOWS
