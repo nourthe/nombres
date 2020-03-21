@@ -5,6 +5,11 @@ emacs
 chromium
 trash-cli
 jumpapp
+
+#Principales Lightweight
+pcmanfm
+	gvfs
+
 ## My Dotfiles
 	curl -Lks http://bit.ly/nourthedotfiles | /bin/bash
 
