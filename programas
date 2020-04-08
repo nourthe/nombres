@@ -37,6 +37,9 @@ gitk
 tk
 tcl
 
+## Arch
+ttf-dejavu ### font with math symbols 
+
 ## PHP (emacs phpactor)
 composer
 
