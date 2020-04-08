@@ -1,7 +1,10 @@
 #Principales
 vim
 emacs
+	## Spacemacs
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+	## spacemacs-org (exportar a pdf):
+		texlive-latex-extra
 chromium
 trash-cli
 jumpapp
@@ -18,8 +21,15 @@ gcc
 gdb
 ctags
 cscope
-chromium
-jumpapp
+
+
+## Haskell development
+ghc
+ghc-static
+cabal-install
+	### Spacemacs
+	cabal install --dependencies-only --ghc-option=-dynamic apply-refact hlint stylish-haskell hasktags hoogle
+
 
 ## Git
 git

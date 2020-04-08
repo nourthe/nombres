@@ -39,3 +39,15 @@ sudo rm /var/lib/pacman/db.lck
 # Manjaro
 won't start until mouse move:
 	install and enable haveged
+
+# wpa_supplicant
+wpa_suplicant -B -i wlo1 -c /etc/wpa_supplicant/wpa_supplicant.conf
+wpa_cli
+> scan
+> scan_results
+> add_network
+0
+> set_network 0 ssid "MIRED"
+> set_network 0 psk "contraseña"
+> enable_network 0
+> save_config
