@@ -5,6 +5,7 @@ emacs
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 	## spacemacs-org (exportar a pdf):
 		texlive-latex-extra
+	## Instalar composer para mejor soporte php.
 chromium
 trash-cli
 jumpapp
@@ -38,7 +39,7 @@ tk
 tcl
 
 ## Arch
-ttf-dejavu ### font with math symbols 
+ttf-dejavu ### font with math symbols
 
 ## PHP (emacs phpactor)
 composer
