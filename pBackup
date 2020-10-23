@@ -10,3 +10,6 @@ curl -Lks http://bit.ly/nourthe-dots | /bin/bash
 /srv/http/
 
 /usr/local/bin/
+
+# Apps
+~/.audacity-data/Macros/
