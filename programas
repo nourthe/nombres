@@ -10,6 +10,8 @@ chromium
 trash-cli
 jumpapp
 
+bat #cat con highlight
+
 #Principales Lightweight
 pcmanfm
 	gvfs
@@ -49,7 +51,6 @@ composer
 	gem
 	gem install bropages
 
-gnome-shell-extension-topicons
 
 #Secundarios
 wine
@@ -59,6 +60,7 @@ speedtest-cli
 	fio
 	##Simular CristalDiskMark: https://gist.github.com/i3v/99f8ef6c757a5b8e9046b8a47f3a9d5b
 
+#gnome-shell-extension-topicons
 #Ubuntu
 
 ###c++ dev. package:
