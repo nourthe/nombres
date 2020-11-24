@@ -1,0 +1,128 @@
+#!/usr/bin/env bash
+set -x
+#trap read debug # descomentar en caso de necesitar debuguear
+## The script will be executed line by line
+
+export device=nvme0n1
+export root_partition=nvme0n1p2
+export efi_partition=nvme0n1p1
+export cpu_manufacturer=intel
+export hostname=nahuarch
+export username=nahuel
+export language=es_AR
+export video=nvidia
+export editor=vim
+
+fdisk -l |less  # Listar particiones
+cfdisk /dev/$device # Particionar disco
+#SWAP
+#mkswap /dev/$swap_partition
+#swapon /dev/$swap_partition
+mkfs.ext4 /dev/$root_partition
+mount /dev/$root_partition /mnt
+mkfs.fat -F 32 /dev/$efi_partition
+mkdir /mnt/efi
+mount /dev/$efi_partition /mnt/efi
+
+pacstrap /mnt base base-devel linux linux-firmware dhcpcd man-db man-pages texinfo sudo vim openssh git zsh tmux grub efibootmgr $cpu_manufacturer-ucode ntfs-3g refind-efi
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+## Writing post chroot file:
+
+echo "#!/bin/bash -xe" > post_chroot_script
+# Comment next line to enable sintax highlighting
+cat <<EOT >> post_chroot_script
+
+ln -sf /usr/share/zoneinfo/America/Argentina/Cordoba /etc/localtime
+hwclock --systohc
+sed -i 's/^#\(en_US.UTF-8\ UTF-8\)/\1/' /etc/locale.gen
+sed -i 's/^#\('$language'.UTF-8.UTF-8\)/\1/' /etc/locale.gen
+locale-gen
+echo LANG=$language.UTF-8 > /etc/locale.conf
+echo $hostname > /etc/hostname
+echo #127.0.0.1      localhost >> /etc/hosts
+echo #::1            localhost >> /etc/hosts
+echo #127.0.1.1      nahuarch.localdomain    nahuarch >> /etc/hosts
+
+mkdir -p /efi/EFI/Boot
+cp /usr/share/refind/refind_x64.efi /efi/EFI/Boot/bootx64.efi
+cp -r /usr/share/refind/drivers_x64 /efi/EFI/Boot/
+
+echo 'extra_kernel_version_strings linux,linux-hardened,linux-lts,linux-zen,linux-git;' > /efi/EFI/Boot/refind.conf
+echo 'fold_linux_kernels false' >> /efi/EFI/Boot/refind.conf
+echo 'default_selection "linux from"' >> /efi/EFI/Boot/refind.conf
+
+systemctl enable dhcpcd
+echo "-- Ingresa la contraseña de administrador para Arch"
+passwd
+
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "export EDITOR=/usr/bin/$editor >> /etc/profile"
+EOT
+
+
+## Executing script in chroot 
+mv post_chroot_script /mnt
+chmod +x /mnt/post_chroot_script
+arch-chroot /mnt ./post_chroot_script
+rm /mnt/post_chroot_script
+
+#exit #reboot
+
+## Post install script
+echo "#!/bin/bash -xe" > post_install_script
+# Comment next line to enable sintax highlighting
+cat <<EOT >> post_install_script
+groupadd $username
+useradd -m -g $username -G wheel,storage,power,network,uucp -s /bin/zsh $username
+echo "Hola $username, introduzca la constraseña para su nuevo usuario."
+passwd $username
+
+#pacman colors
+sed -i 's/^#\(Color\)$/\1/' /etc/pacman.conf
+#pacman enable multilib
+sed -i 's/^#\(\[multilib\]\)$/\1\nInclude = \/etc\/pacman.d\/mirrorlist/' /etc/pacman.conf
+
+pacman --noconfirm -Syu
+pacman --noconfirm -S xorg #group
+pacman --noconfirm -S packagekit-qt5 flatpak fwupd appmenu-gtk-module noto-fonts-emoji plasma kde-applications #groups
+pacman --noconfirm -S nvidia
+pacman -S chromium numlock mpv steam
+
+
+
+## Install yay AUR helper
+git clone https://aur.archlinux.org/yay.git 
+cd yay
+makepkg -si
+cd ..
+rm -r yay
+
+
+systemctl enable sddm
+systemctl enable NetworkManager
+echo 'Section "Device"
+ 	Identifier "Nvidia Card"
+ 	Driver "nvidia"
+ 	VendorName "NVIDIA Corporation"
+ 	Option "NoLogo" "true"
+ 	#Option "UseEDID" "false"
+ 	#Option "ConnectedMonitor" "DFP"
+ 	#Option "UseEdidDpi" "False"
+ 	#Option "DPI"	 "96 x 96"
+ EndSection 
+' >> /etc/X11/xorg.conf.d/20-nvidia.conf
+
+$editor /etc/X11/xorg.conf.d/20-nvidia.conf
+
+#SUDOERS file
+EDITOR=$editor visudo
+EOT
+chmod +x post_install_script
+mv post_install_script /mnt/root/
+echo "-- Installation completed. Reboot now and execute /root/post_install_script."
+
+
