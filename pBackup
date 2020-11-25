@@ -9,7 +9,12 @@ curl -Lks http://bit.ly/nourthe-dots | /bin/bash
 
 /srv/http/
 
+.config/?
+.screenlayouts
+
 /usr/local/bin/
 
 # Apps
 ~/.audacity-data/Macros/
+~/.spacemacs.d/local-init.el
+~/.spacemacs.d/local-config.el
