@@ -2,6 +2,7 @@
 #youtube-dl
     MP3: youtube-dl --extract-audio --audio-format mp3 <video URL>
     shorter: -x, --extract-audio 
+    BATCH FILE: youtube-dl -ci --batch-file=download.txt
 
 #mpv
     music&random: mpv <url(maybe-playlist)> --no-video --shuffle
