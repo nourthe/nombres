@@ -30,3 +30,5 @@
 #PDF merge:
     pdfunite in-1.pdf in-2.pdf in-n.pdf out.pdf
 
+#Network scan
+nmap -sP 192.168.1.0/24 #24 is subnet mask
