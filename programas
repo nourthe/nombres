@@ -11,6 +11,7 @@ emacs
 	## Instalar composer para mejor soporte php.
 chromium
 trash-cli
+progress # Watch cp and mv progress with -w
 
 bat #cat con highlight
 
@@ -87,6 +88,10 @@ virt-manager
 edk2-ovmf
 bridge-utils
 seabios
+## forget network problems without install firewall (restart libvirtd
+ebtables
+dnsmasq
+
 
 #gnome-shell-extension-topicons
 
