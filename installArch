@@ -3,14 +3,14 @@ set -x
 #trap read debug # descomentar en caso de necesitar debuguear
 ## The script will be executed line by line
 
-export device=nvme0n1
-export root_partition=nvme0n1p2
-export efi_partition=nvme0n1p1
+export device=sda
+export root_partition=sda3
+export efi_partition=sda4
 export cpu_manufacturer=intel
 export hostname=nahuarch
 export username=nahuel
 export language=es_AR
-export video=nvidia
+export video=intel
 export editor=vim
 
 fdisk -l |less  # Listar particiones
@@ -89,21 +89,24 @@ sed -i 's/^#\(\[multilib\]\)$/\1\nInclude = \/etc\/pacman.d\/mirrorlist/' /etc/p
 pacman --noconfirm -Syu
 pacman --noconfirm -S xorg #group
 pacman --noconfirm -S packagekit-qt5 flatpak fwupd appmenu-gtk-module noto-fonts-emoji plasma kde-applications #groups
+if [ "$video" == "nvidia" ]; then
 pacman --noconfirm -S nvidia
-pacman -S chromium numlock mpv steam
-
-
+fi
+pacman -S chromium numlockx mpv steam
 
 ## Install yay AUR helper
-git clone https://aur.archlinux.org/yay.git 
+
+cd /home/nahuel
+sudo -u nahuel git clone https://aur.archlinux.org/yay.git 
 cd yay
-makepkg -si
+sudo -u nahuel makepkg -si
 cd ..
 rm -r yay
 
-
 systemctl enable sddm
 systemctl enable NetworkManager
+
+if [ "$video" == "nvidia" ]; then
 echo 'Section "Device"
  	Identifier "Nvidia Card"
  	Driver "nvidia"
@@ -115,8 +118,9 @@ echo 'Section "Device"
  	#Option "DPI"	 "96 x 96"
  EndSection 
 ' >> /etc/X11/xorg.conf.d/20-nvidia.conf
-
 $editor /etc/X11/xorg.conf.d/20-nvidia.conf
+fi
+
 
 #SUDOERS file
 EDITOR=$editor visudo
