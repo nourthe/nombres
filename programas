@@ -7,6 +7,7 @@ emacs
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 	## spacemacs-org (exportar a pdf):
 		texlive-core texlive-fontsextra texlive-latexextra  #[org latex export]
+    ### Opcionalmente puede hacer falta perl(5) y ghostscript para pdfcrop.
 	## Instalar composer para mejor soporte php.
 chromium
 trash-cli

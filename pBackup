@@ -18,3 +18,7 @@ curl -Lks http://bit.ly/nourthe-dots | /bin/bash
 ~/.audacity-data/Macros/
 ~/.spacemacs.d/local-init.el
 ~/.spacemacs.d/local-config.el
+
+Pacman Hooks
+Systemd services
+
