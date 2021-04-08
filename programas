@@ -77,6 +77,7 @@ composer
 #Secundarios
 wine
 speedtest-cli
+briss #edicion de pdf
 
 ###Test de PC:
 	fio
@@ -91,6 +92,7 @@ seabios
 ## forget network problems without install firewall (restart libvirtd
 ebtables
 dnsmasq
+
 
 
 #gnome-shell-extension-topicons
