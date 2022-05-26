@@ -26,6 +26,8 @@ noto-fonts-emoji
 #Principales Lightweight
 pcmanfm
 	gvfs
+	gvfs-acs #iOS
+	gvfs-gphoto2 #iOS
 
 #AUR
 jumpapp
